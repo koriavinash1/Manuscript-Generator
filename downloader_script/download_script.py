@@ -8,7 +8,7 @@ parent_category = [{'type': 'cs',
 		'sub-type': ['q-bio.gn', 'q-bio.nc', 'q-bio.ot', 'q-bio.qm']},
 	 	   {'type': 'stat',
 		'sub-type': ['stat.ap', 'stat.co', 'stat.ml', 'stat.me', 'stat.ot', 'stat.th']},
-		   {'type': 'physics',
+		   {'type': 'physics:gr-qc',
 		'sub-type': ['gr-qc']}
 	]
 download_dates = ['201'+str(j)+'-'+str(i+1).zfill(2)+'-01' for j in [5, 6, 7, 8, 9] for i in range(12)]
@@ -56,7 +56,9 @@ df['title'] = titles
 df['categories'] = categories
 df['abstract'] = abstracts
 
-df.to_csv('./Arxiv_Text_Data_CS_QBIO_STAT_LARGE.csv')
+import os 
+if not os.path.exists('../data'): os.mkdir('../data')
+df.to_csv('../data/Arxiv_Text_Data_CS_QBIO_STAT_LARGE.csv')
 
 
 
